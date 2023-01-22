@@ -18,7 +18,7 @@ public class Cab{
   
   private int perKmRate;
   
-  private boolean availabe;
+  private boolean available;
   
   
   @OneToOne
@@ -41,12 +41,12 @@ public void setPerKmRate(int perKmRate) {
 	this.perKmRate = perKmRate;
 }
 
-public boolean getAvailabe() {
-	return availabe;
+public boolean getAvailable() {
+	return available;
 }
 
-public void setAvailabe(boolean availabe) {
-	this.availabe = availabe;
+public void setAvailable(boolean available) {
+	this.available = available;
 }
 
 
@@ -58,11 +58,11 @@ public void setDriver(Driver driver) {
 	this.driver = driver;
 }
 
-public Cab(int id, int perKmRate, boolean availabe) {
+public Cab(int id, int perKmRate, boolean available) {
 	super();
 	this.id = id;
 	this.perKmRate = perKmRate;
-	this.availabe = availabe;
+	this.available = available;
 }
 
 public Cab() {
