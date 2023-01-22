@@ -65,6 +65,13 @@ public Cab(int id, int perKmRate, boolean available) {
 	this.available = available;
 }
 
+public Cab(int perKmRate, boolean available) {
+	super();
+	
+	this.perKmRate = perKmRate;
+	this.available = available;
+}
+
 public Cab() {
 	super();
 	// TODO Auto-generated constructor stub

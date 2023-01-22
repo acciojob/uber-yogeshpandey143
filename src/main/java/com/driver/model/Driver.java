@@ -83,6 +83,13 @@ public class Driver{
 		this.mobile = mobile;
 		this.password = password;
 	}
+	
+	public Driver(String mobile, String password) {
+		super();
+		
+		this.mobile = mobile;
+		this.password = password;
+	}
 
 	public Driver() {
 		super();
