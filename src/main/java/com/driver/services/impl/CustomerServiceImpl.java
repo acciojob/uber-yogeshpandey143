@@ -92,8 +92,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void cancelTrip(Integer tripId){
 		//Cancel the trip having given trip Id and update TripBooking attributes accordingly
-		
-		
+		TripBooking trip = tripBookingRepository2.findById(tripId).get();
+		trip.setStatus(TripStatus.CANCELED);
+		trip.getDriver().getCab().setAvailable(true);
+		trip.setBill(0);
+		tripBookingRepository2.save(trip);
 
 	}
 
@@ -101,5 +104,10 @@ public class CustomerServiceImpl implements CustomerService {
 	public void completeTrip(Integer tripId){
 		//Complete the trip having given trip Id and update TripBooking attributes accordingly
 
+		
+		TripBooking trip = tripBookingRepository2.findById(tripId).get();
+		trip.setStatus(TripStatus.COMPLETED);
+		trip.getDriver().getCab().setAvailable(true);
+		tripBookingRepository2.save(trip);
 	}
 }
