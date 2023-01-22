@@ -3,6 +3,9 @@ package com.driver.services.impl;
 import com.driver.model.Cab;
 import com.driver.repository.CabRepository;
 import com.driver.services.DriverService;
+
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,12 +30,26 @@ public class DriverServiceImpl implements DriverService {
 	@Override
 	public void removeDriver(int driverId){
 		// Delete driver without using deleteById function
+		
+		driverRepository3.deleteById(driverId);
 
 	}
 
 	@Override
 	public void updateStatus(int driverId){
 		//Set the status of respective car to unavailable
-
+       List<Driver> driverList= driverRepository3.findAll();
+       
+       for(Driver driver : driverList)
+       {
+    	   if(driver.getDriverId()==driverId)
+    	   {
+    		Cab cab =   driver.getCab();
+    		
+    		cab.setAvailabe(false);
+    	   }
+    	   
+       }
+       
 	}
 }
